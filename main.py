@@ -21,7 +21,6 @@ def clean_cache():
     if not os.path.exists(dir_cache):
          os.mkdir(dir_cache)
     else:
-        #if os.path.exists(dir_cache):
             shutil.rmtree(dir_cache)
             os.chdir(cwd)
             os.mkdir(dir_cache)
@@ -42,7 +41,6 @@ def cached_files():
    return list_files
     
 def find_password(list_files):
-    #os.chdir(dir_cache)
     for file_name in list_files:
         abs_path = os.path.abspath(file_name)
         text = "password"
@@ -51,8 +49,6 @@ def find_password(list_files):
                 if text in f.read():
                     final_path = os.path.abspath(file_name)
                     print(text + " found at " + final_path)
-                else:
-                    print("no password found at " + abs_path)
                 pass     
 clean_cache()
 cache_zip(data_zip, dir_cache)
